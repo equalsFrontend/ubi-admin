@@ -1,0 +1,55 @@
+<div class="panel panel-flat mb-0">
+
+    <h5 class="panel-heading">{{"RMA.VALIDATION.TITLE"|translate}}</h5>
+
+    <div class="panel-body">
+
+        <div class="row" id="section-3">
+
+            <div class="col-md-6">
+
+                <div class="form-group checkbox">
+                    <input id="VERIFICATION" name="VERIFICATION" ng-model="packaging.verification.VERIFICATION" type="checkbox" required>
+                    <label for="VERIFICATION">{{"RMA.VALIDATION.VERIFICATION"|translate}}</label>
+                    <p ng-show="formDeclare.VERIFICATION.$invalid && formDeclare.$submitted" class="help-block- text-danger">{{errorMessages.VERIFICATION}}</p>
+                </div>
+                <div class="form-group checkbox">
+                    <input id="RECONNECT" name="RECONNECT" ng-model="packaging.verification.RECONNECT" type="checkbox" required>
+                    <label for="RECONNECT">{{"RMA.VALIDATION.RECONNECT"|translate}}</label>
+                    <p ng-show="formDeclare.RECONNECT.$invalid && formDeclare.$submitted" class="help-block- text-danger">{{errorMessages.RECONNECT}}</p>
+                </div>
+                <div class="form-group checkbox">
+                    <input id="OVERNIGHT_DECONNECT" name="OVERNIGHT_DECONNECT" ng-model="packaging.verification.OVERNIGHT_DECONNECT" type="checkbox" required>
+                    <label for="OVERNIGHT_DECONNECT">{{"RMA.VALIDATION.OVERNIGHT_DECONNECT"|translate}}</label>
+                    <p ng-show="formDeclare.OVERNIGHT_DECONNECT.$invalid && formDeclare.$submitted" class="help-block- text-danger">{{errorMessages.OVERNIGHT_DECONNECT}}</p>
+                </div>
+                <div class="form-group checkbox">
+                    <input id="BLINK_20_SECS" name="BLINK_20_SECS" ng-model="packaging.verification.BLINK_20_SECS" type="checkbox" required>
+                    <label for="BLINK_20_SECS">{{"RMA.VALIDATION.BLINK_20_SECS"|translate}}</label>
+                    <p ng-show="formDeclare.BLINK_20_SECS.$invalid && formDeclare.$submitted" class="help-block- text-danger">{{errorMessages.BLINK_20_SECS}}</p>
+                </div>
+                <div class="form-group checkbox">
+                    <input id="NO_VEHICLE_CHANGE" name="NO_VEHICLE_CHANGE" ng-model="packaging.verificatio.NO_VEHICLE_CHANGE" type="checkbox" required>
+                    <label for="NO_VEHICLE_CHANGE">{{"RMA.VALIDATION.NO_VEHICLE_CHANGE"|translate}}</label>
+                    <p ng-show="formDeclare.NO_VEHICLE_CHANGE.$invalid && formDeclare.$submitted" class="help-block- text-danger">{{errorMessages.NO_VEHICLE_CHANGE}}</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!--
+                <div class="form-group">
+                    <label>Veuillez selectionner une configuration d'envoi</label>
+                    <select required name="packagingType" ng-model="packaging.packagingType" class="form-control" ng-options="packagingItem as packagingItem.name for packagingItem in packagingTypes" >
+                    </select>
+                    <p ng-show="formDeclare.packagingType.$invalid && formDeclare.$submitted" class="help-block- text-danger">Veuillez selectionner une configuration d'envoi</p>
+                </div>
+                -->
+                <div class="form-group">
+                    <label>{{"RMA.NOTES"|translate}}</label>
+                    <textarea class="form-control" rows="7" ng-model="packaging.notes"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="row" id="section-2">
+    <div class="col-md-12">
+        <div class="panel panel-flat mb-0">
+
+            <h5 class="panel-heading">Nouveau véhicule</h5>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <label>VIN</label>
+                            <input type="text" ng-model="newVehicle.vin" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Surnom du véhicule</label>
+                            <input type="text" ng-model="newVehicle.name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Note</label>
+                            <textarea class="form-control" rows="7" ng-model="newVehicle.note"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <label>Marque</label>
+                            <select ng-model="newVehicle.brand" class="form-control" ng-options="brand.name as brand.name for brand in brands" required>
+                                <option value="">Choisir une marque</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Modèle</label>
+                            <select ng-model="newVehicle.model" class="form-control" ng-options="model.name as model.name for model in models" required>
+                                <option value="">Choisir un modèle</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Année</label>
+                            <select ng-model="newVehicle.year" class="form-control" ng-options="year for year in years">
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

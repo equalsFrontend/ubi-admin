@@ -1,0 +1,11 @@
+<div class="pull-right" id="">
+
+    <button ng-if="currentStep != 'search'" type="button" ng-click="gotoPreviousStep()" class="btn btn-link"> <span class="fa fa-angle-left"></span> Retour</button>
+
+    <button ng-if="currentStep == 'info'" type="button" ng-click="saveInfo()" class="btn btn-primary">Valider  <span class="fa fa-angle-right"></span></button>
+
+    <button ng-if="currentStep == 'vehicle'" ng-disabled="!formDeclare.$valid" type="button" ng-click="saveVehicle()" class="btn btn-primary">Sauvegarder  <span class="fa fa-angle-right"></span></button>
+
+    <button ng-if="currentStep == 'confirm'" type="button" ng-click="sendSub()" class="btn btn-primary">Envoyer la déclaration  <span class="fa fa-angle-right"></span></button>
+
+</div>

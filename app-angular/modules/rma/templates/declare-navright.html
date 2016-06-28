@@ -1,0 +1,8 @@
+<div class="pull-right" id="">
+    <button ng-if="$state.current.name.indexOf('search') < 0" type="button" ng-click="previousStep()" class="btn btn-link"> <span class="fa fa-angle-left"></span> {{"BTN_BACK"|translate}}</button>
+
+    <button ng-if="$state.current.name.indexOf('info') > -1" type="button" ng-click="saveInfo()" class="btn btn-primary">{{"BTN_NEXT"|translate}}  <span class="fa fa-angle-right"></span></button>
+    <button ng-if="$state.current.name.indexOf('validate') > -1" id="validateButton" ng-disabled="!formDeclare.$valid" type="button" ng-click="validate()" class="btn btn-primary">{{"BTN_NEXT"|translate}}  <span class="fa fa-angle-right"></span></button>
+
+    <button ng-if="$state.current.name.indexOf('confirm') > -1" type="button" ng-click="sendRMA()" class="btn btn-primary">{{"FULFILLMENTS.SEND_BTN"|translate}}</button>
+</div>

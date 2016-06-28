@@ -1,0 +1,8 @@
+<nav class="w-top-nav w-nav-">
+    <div class="padlock" ng-if="navLocked == 'true'"></div>
+    <a href="" ng-click="toggleSidebar()" class="pull-left breadcrumb menu-button"><span class="fa fa-bars"></span></a>
+    <div ui-view="breadcrumbs"></div>
+</nav>
+
+<h1 class="page-header" id="spot">{{"DASHBOARD.GREETINGS" | translate}} {{user.firstName}}</h1>
+<p>{{"DASHBOARD.GREETINGS_PARAGRAPH" | translate}}</p>

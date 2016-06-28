@@ -1,0 +1,246 @@
+{
+  "DIALOG" : {
+    "CONFIRM" : {
+      "OK": "OK",
+      "YES" : "I understand",
+      "NO" : "Nevermind",
+      "RESTART": "Restart",
+      "PAGE_CHANGE": {
+        "TITLE" : "Your changes will be lost",
+        "LIST" : "You have items selected. By leaving this section, your selections will be lost.",
+        "PROFILE" : "You have made changes. By quitting this page without saving, your changes will be lost."
+      },
+      "ACTION": {
+        "YES" : "Yes, do it",
+        "NO" : "No, go back",
+        "ARE_YOU_SURE": "Are you sure you want to",
+        "THE_PARTICIPANT": "the participant"
+      },
+      "RMA": {
+        "ERROR": "Error processing RMA",
+        "SUCCESS": "RMA processed successfully",
+        "VEHICLE_DEVICE": "The participants vehicle has not been associated to a device.",
+        "TRY_AGAIN": "An unknown error has occured, please try again later.",
+        "ASSOCIATED_MACHINE": "The associated device",
+        "DEACTIVATED": "has been deactivated.",
+        "COMING_SOON": "New device number coming soon.",
+        "FORM_MODIFIED": "Form modified",
+        "FORM_MODIFIED_TEXT": "Save before moving on?",
+        "FORM_SAVED": "Information successfully saved"
+      },
+      "SUB": {
+        "SUCCESS": "Substitution processed successfully"
+      }
+    },
+    "ALERT" : {
+      "OK": "OK",
+      "NOT_FOUND": {
+        "TITLE": "Sorry",
+        "PARTICIPANT": "Information on this participant cannot be found."
+      },
+      "SAVE": {
+        "ERROR": {
+          "TITLE": "Error while saving",
+          "PARTICIPANT": "An error occurred while trying to save the participant information. Please try again later.",
+          "ADDRESS": "An error occurred while trying to save the participant's address. Please try again later."
+        },
+        "SUCCESS": {
+          "PARTICIPANT": "The participant information was successfully saved.",
+          "ADDRESS": "The participant's address was successfully saved."
+        }
+      },
+      "ACTION": {
+        "SUCCESS": "Action successfully completed.",
+        "ERROR": {
+          "TITLE": "Action failed",
+          "DETAIL": "We've encountered an error, please try again later."
+        }
+      }
+    }
+  },
+  "DASHBOARD" : {
+    "MENU" : {
+      "HOME" : "Dashboard"
+    },
+    "BREADCRUMB" : {
+      "DASHBOARD" : "Dashboard",
+      "HOME" : "Home"
+    },
+    "GREETINGS": "Hi",
+    "GREETINGS_PARAGRAPH": "Welcome to IMetrik's UBI Admin control panel."
+  },
+  "PARTICIPANTS" : {
+    "PROFIL" : {
+      "TABS" : {
+        "INFO" : "Info",
+        "ADDRESS" : "Address",
+        "MACHINE" : "Machine",
+        "MACHINE_AND_DEVICE": "Machine and Device"
+      }
+    },
+    "PARTICIPANT_SINGLE" : "Participant",
+    "PARTICIPANT_PLURAL" : "Participants",
+    "PARTICIPANTS" : "Participants",
+    "MENU" : {
+      "HOME" : "Participants",
+      "VALI" : "Pending",
+      "SUIVI" : "Active",
+      "DESA" : "Unsubscribed",
+      "REFU" : "Refused"
+    },
+    "BREADCRUMB" : {
+      "PARTICIPANTS" : "Participants",
+      "BATCH" : "Batch",
+      "PROFILE_OF" : "User profile of",
+      "VALI" : "Pending",
+      "SUIVI" : "Active",
+      "DESA" : "Unsubscribed",
+      "REFU" : "Refused"
+    },
+    "FIELDS" : {
+      "DATE_INSCRIPTION" : "Date subscribed",
+      "DATE_DESA" : "Date unsubscribed",
+      "DATE_REFUS": "Date refused",
+      "DATE_VALIDATION" : "Date validated",
+      "ID_ASS" : "Insurer ID",
+      "PSEUDO" : "Username",
+      "FIRSTNAME" : "First name",
+      "LASTNAME" : "Last name",
+      "EMAIL" : "E-mail",
+      "TEL" : "Phone",
+      "TEL_FIX": "Work phone",
+      "TEL_MOBILE": "Mobile",
+      "ADDRESS" : "Address",
+      "SHIPPING_ADDRESS" : "Shipping address",
+      "ADDRESS1" : "Street name, number",
+      "ADDRESS2" : "Apt",
+      "CITY" : "City",
+      "POSTAL_CODE" : "Postal Code",
+      "COUNTRY" : "Country",
+      "BRAND" : "Brand",
+      "MODEL" : "Model",
+      "YEAR" : "Year",
+      "SERIAL_NO" : "Serial Number",
+      "FIRST_TRANSMISSION" : "First connection",
+      "LAST_TRANSMISSION" : "Last connection",
+      "MUBI" : "MUBI",
+      "ACTION" : "Action",
+      "LANGUAGE" : "Language",
+      "DEVICE": "Device",
+      "VEHICLE": "Vehicle",
+      "VEHICLE_NAME": "Vehicle name",
+      "VIN":"VIN",
+      "RMA_CREATEDTS": "Date de RMA",
+      "RMA_STATUS": "RMA Statut",
+      "RMA_OLD_SERIAL": "Old serial number",
+      "RMA_NEW_SERIAL": "New serial number",
+      "RMA_NEW_FIRSTTS": "First connection by new serial",
+      "RMA_NEW_LASTTS": "Last connection by new serial",
+
+      "SUB_CREATEDTS": "Substitution date",
+      "ORDER_STATUS": "Order status"
+    },
+    "ACTIONS" : {
+      "VALIDATE" : "Validate",
+      "REVALIDATE" : "Revalidate",
+      "REFUSE" : "Refuse",
+      "DELETE" : "Delete",
+      "UNSUBSCRIBE" : "Unsubscribe",
+      "DECLARE": "Declare"
+    }
+  },
+  "FULFILLMENTS" : {
+    "SEARCH" : {
+      "TITLE" : "Enter an Insurer ID, participant name or Machine ID",
+      "RESULTS_TITLE" : "Select a participant",
+      "KEYWORD_PLACEHOLDER" : "Insurer ID, participant name or Machine ID",
+      "CHOOSE": "Select"
+    },
+    "INFO" : {
+      "PERSONAL_INFO": "Personal Information"
+    },
+    "CONFIRM" : {
+      "TITLE" : "Confirm"
+    },
+    "SEND_BTN" : "Submit"
+  },
+  "RMA" : {
+    "RMA_SINGLE" : "RMA",
+    "RMA_PLURAL" : "RMAs",
+    "MENU" : {
+      "HOME" : "RMA",
+      "DECLARE" : "Declare",
+      "SUIVI" : "Track"
+    },
+    "BREADCRUMB" : {
+      "HOME" : "RMA",
+      "DECLARE" : "Declare"
+    },
+    "DECLARE" : {
+      "SEARCH" : "Choose a participant",
+      "INFO" : "Verify the information",
+      "VEHICLE":"Validate the RMA",
+      "CONFIRM": "Confirm"
+    },
+    "VALIDATION" : {
+      "TITLE" : "Verify before submitting",
+      "VERIFICATION" : "The installation was verified by the agent and the participant.",
+      "RECONNECT" : "Has the participant tried disconnecting and reconnecting the device?",
+      "OVERNIGHT_DECONNECT" : "Has the participant tried leaving the device disconnected over night?",
+      "BLINK_20_SECS" : "The LED on the device no longer flashes every 20 seconds.",
+      "NO_VEHICLE_CHANGE" : "The participant did not change the device in the vehicle."
+    },
+    "NOTES" : "Notes",
+    "SEARCH" : {
+      "TITLE" : "Select from the results"
+    },
+    "CONFIRM" : {
+      "MID" : "MID",
+      "ID_ASS" : "Insurer ID",
+      "PARTICIPANT_INFO" : "Participant information",
+      "PACKAGING" : "Packaging",
+      "VEHICLE_INFO" : "Vehicle information",
+      "NO_VEHICLE" : "No vehicle specified"
+    }
+  },
+  "SUB" : {
+    "SUB_SINGLE": "Substitution",
+    "SUB_PLURAL": "Substitutions",
+    "MENU" : {
+      "HOME" : "Substitution",
+      "SUIVI": "Track",
+      "DECLARE" : "Declare"
+    }
+  },
+  "AUTH" : {
+    "LOGOUT" : "Logout",
+    "LOGIN_ERROR" : "The username or password you've entered is incorrect"
+  },
+  "BATCH" : {
+    "FOR_ALL_SELECTED" : "For all the selected items"
+  },
+  "BTN_BACK" : "Back",
+  "BTN_NEXT" : "Next",
+  "PAGINATION" : {
+    "FIRST" : "First page",
+    "PREVIOUS" : "Previous page",
+    "NEXT" : "Next page",
+    "LAST" : "Last page"
+  },
+  "CHANGE": "Change",
+  "MODIFY": "Modify",
+  "SAVE": "Save",
+  "TO" : "to",
+  "OVER" : "of",
+  "CONTINUE" : "Continue",
+  "QUICK_SEARCH" : "Quick search...",
+  "ADDITIONAL_FIELDS" : "Additional fields",
+  "VALIDATED": "Validated",
+  "UNSUBSCRIBED": "Unsubscribed",
+  "SUBSCRIBED": "Subscribed",
+  "REFUSED": "Refused",
+  "BADGE_VALIDATED": "success",
+  "BADGE_UNSUBSCRIBED": "muted",
+  "BADGE_SUBSCRIBED": "warning",
+  "BADGE_REFUSED": "danger"
+}

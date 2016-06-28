@@ -1,0 +1,18 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{ options.title }}</h4>
+      </div>
+      <div class="modal-body">
+        <p ng-bind-html="options.message"></p>
+      </div>
+      <div class="modal-footer" ng-if="options.buttons.length > 0">
+        <span ng-repeat="button in options.buttons">
+          <button type="button" ng-click="button.callback()" data-dismiss="{{ button.dismiss }}" class="{{ button.btnClass }}">{{ button.label }}</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

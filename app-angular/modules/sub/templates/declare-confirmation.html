@@ -1,0 +1,104 @@
+<div class="panel panel-flat">
+    <h5 class="panel-heading">Confirmation de la déclaration</h5>
+
+    <div class="panel-body">
+
+        <div class="panel panel-flat">
+            <div class="panel-body">
+
+                <div class="row mb-10">
+                    <div class="col-md-4 text-right">
+                        <h5>MID</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <h5>{{ machine.machineIdentifier }}</h5>
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col-md-4 text-right">
+                        <h5>Info du participant</h5>
+                        <a href="" type="button" class="" ng-click="gotoStep('info',true)">modifier</a>
+                    </div>
+                    <div class="col-md-8">
+                        <address>
+                            <strong>ID Assureur</strong><br>
+                            {{ participant.externalIdentifier }}
+                        </address>
+
+                        <address>
+                            <strong>{{ participant.user.firstName }} {{ participant.user.lastName }}</strong><br>
+                            {{ participant.user.username }} <br ng-show="participant.user.username">
+                            {{ participant.user.email }} <br ng-show="participant.user.email">
+                            <div ng-show="participant.user.homePhoneNumber">
+                                Téléphone maison : {{ participant.user.homePhoneNumber }}
+                            </div>
+                            <div ng-show="participant.user.cellPhoneNumber">
+                                Téléphone cellulaire : {{ participant.user.cellPhoneNumber }}
+                            </div>
+                            <div ng-show="participant.user.workPhoneNumber">
+                                Téléphone travail : {{ participant.user.workPhoneNumber }}
+                            </div>
+                        </address>
+
+                        <div class="clearfix"></div>
+
+                        <div ng-show="!address">
+                            Aucune adresse de livraison spécifiée
+                        </div>
+
+                        <address ng-show="address">
+                            <strong> {{ address.name }} </strong><br>
+                            {{ address.line1 }}<br>
+                            <span ng-show="address.line2">
+                            {{ address.line2 }}<br>
+                            </span>
+                            {{ address.city }}, {{ address.state }} {{ address.postalCode }}
+                        </address>
+
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col-md-4 text-right">
+                        <h5>Ancien véhicule</h5>
+                        <a href="" type="button" class="" ng-click="gotoStep('vehicle',true)">modifier</a>
+                    </div>
+                    <div class="col-md-8">
+
+                        <div ng-show="!machine.vehicle">
+                            Aucun véhicule spécifié
+                        </div>
+
+                        <address ng-show="machine.vehicle">
+                            <strong>{{ machine.vehicle.brand }} {{ machine.vehicle.model }}</strong><br>
+                            {{ machine.vehicle.name }} <br ng-show="machine.vehicle.name">
+                            {{ machine.vehicle.year }}
+                        </address>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <h5>Nouveau véhicule</h5>
+                        <!--<a href="" type="button" class="" ng-click="gotoStep('dashboard.rma.declare.validate')">modifier</a>-->
+                    </div>
+                    <div class="col-md-8">
+
+                        <address ng-show="newVehicle">
+                            {{ note }}
+                            <strong>{{ newVehicle.brand }} {{ newVehicle.model }}</strong><br>
+                            {{ newVehicle.name }} <br ng-show="newVehicle.name">
+                            {{ newVehicle.year }} <br ng-show="newVehicle.note">
+                            {{ newVehicle.note }}
+                        </address>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button type="button" ng-click="sendSub()" class="btn btn-block btn-lg btn-primary">Envoyer la déclaration</button>
+    </div>
+</div>

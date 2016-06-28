@@ -1,0 +1,247 @@
+{
+  "DIALOG" : {
+    "CONFIRM" : {
+      "OK": "OK",
+      "YES" : "Oui",
+      "NO" : "Non",
+      "RESTART": "Recommencer",
+      "PAGE_CHANGE": {
+        "TITLE" : "Confirmation de changement de page",
+        "LIST" : "Vous avez des items sélectionnés. Si vous changez de page, votre sélection sera réinitialisée. Désirez-vous continuer?",
+        "PROFILE" : "En quittant cette page, tous les changements effectués et non sauvegardés seront perdus."
+      },
+      "ACTION": {
+        "YES" : "Oui",
+        "NO" : "Non",
+        "ARE_YOU_SURE": "Êtes-vous sur de vouloir",
+        "THE_PARTICIPANT": "l'utilisateur"
+      },
+      "RMA": {
+        "ERROR": "Erreur",
+        "SUCCESS": "RMA soumis avec succès",
+        "VEHICLE_DEVICE": "Le véhicule du participant n'a pas été encore associé à un boitier.",
+        "TRY_AGAIN": "Une erreur serveur est survenue. Veuillez réessayer plus tard.",
+        "ASSOCIATED_MACHINE": "Le dispositif associé au véhicule",
+        "DEACTIVATED": "a bien été désactivé",
+        "COMING_SOON": "Numéro de suivi du nouveau dispositif : À venir",
+        "FORM_MODIFIED": "Formulaire modifié",
+        "FORM_MODIFIED_TEXT": "Le formulaire a été modifié. Désirez-vous sauvegarder avant de passer à la prochaine étape?",
+        "FORM_SAVED": "Sauvegarde complétée avec succès"
+      },
+      "SUB": {
+        "SUCCESS": "Substitution processed successfully"
+      }
+    },
+    "ALERT" : {
+      "OK": "OK",
+      "NOT_FOUND": {
+        "TITLE": "Desolé",
+        "PARTICIPANT": "Le participant n'a pas été trouvé."
+      },
+      "SAVE": {
+        "ERROR": {
+          "TITLE": "Erreur",
+          "PARTICIPANT": "Une erreur est survenue lors de la sauvegarde du participant, veuillez réessayer plus tard.",
+          "ADDRESS": "Une erreur est survenue lors de la sauvegarde de l'addresse, veuillez réessayer plus tard."
+        },
+        "SUCCESS": {
+          "PARTICIPANT": "Le profil de l'utilisateur a bien été mis à jour.",
+          "ADDRESS": "L'addresse du participant sauvegardé avec succès."
+        }
+      },
+      "ACTION": {
+        "SUCCESS": "Action complétée avec succès.",
+        "ERROR": {
+          "TITLE": "Action a échouée.",
+          "DETAIL": "Une erreur est survenue, veuillez réessayer plus tard."
+        }
+      }
+    }
+  },
+  "DASHBOARD" : {
+    "MENU" : {
+      "HOME" : "Tableau de bord"
+    },
+    "BREADCRUMB" : {
+      "DASHBOARD" : "Tableau de bord",
+      "HOME" : "Accueil"
+    },
+    "GREETINGS": "Bonjour",
+    "GREETINGS_PARAGRAPH": "Bienvenue dans l'administration UBI IMetrik"
+  },
+  "PARTICIPANTS" : {
+    "PROFIL" : {
+      "TABS" : {
+        "INFO" : "Info",
+        "ADDRESS" : "Adresse",
+        "MACHINE" : "Machine",
+        "MACHINE_AND_DEVICE": "Véhicule et boitier"
+      }
+    },
+    "PARTICIPANT_SINGLE" : "Participant",
+    "PARTICIPANT_PLURAL" : "Participants",
+    "PARTICIPANTS" : "Participants",
+    "MENU" : {
+      "HOME" : "Participants",
+      "VALI" : "En attentes",
+      "SUIVI" : "Actifs",
+      "DESA" : "Désabonnés",
+      "REFU" : "Refusés"
+    },
+    "BREADCRUMB" : {
+      "PARTICIPANTS" : "Participants",
+      "BATCH" : "Batch",
+      "PROFILE_OF" : "Profil de",
+      "VALI" : "En attentes",
+      "SUIVI" : "Actifs",
+      "DESA" : "Désabonnés",
+      "REFU" : "Refusés"
+    },
+    "FIELDS" : {
+      "DATE_INSCRIPTION" : "Date d'inscription",
+      "DATE_DESA" : "Date de désabonnement",
+      "DATE_REFUS":"Date de refus",
+      "DATE_VALIDATION" : "Date de validation",
+      "ID_ASS" : "ID Assureur",
+      "PSEUDO" : "Pseudo",
+      "FIRSTNAME" : "Prénom",
+      "LASTNAME" : "Nom",
+      "EMAIL" : "Courriel",
+      "TEL" : "Téléphone",
+      "TEL_FIX":"Téléphone fixe",
+      "TEL_MOBILE":"Téléphone portable",
+      "ADDRESS" : "Addresse",
+      "SHIPPING_ADDRESS" : "Adresse de livraison",
+      "ADDRESS1" : "Num. et nom de la rue",
+      "ADDRESS2" : "Complément d'adresse",
+      "CITY" : "Ville",
+      "POSTAL_CODE" : "Code postal",
+      "COUNTRY" : "Pays",
+      "BRAND" : "Marque",
+      "MODEL" : "Modèle",
+      "YEAR" : "Année",
+      "SERIAL_NO" : "Num. de série",
+      "FIRST_TRANSMISSION" : "Première transmission",
+      "LAST_TRANSMISSION" : "Dernière transmission",
+      "MUBI" : "ID véhicule",
+      "ACTION" : "Action",
+      "LANGUAGE" : "Langue",
+      "DEVICE":"Boitier",
+      "VEHICLE":"Véhicule",
+      "VEHICLE_NAME":"Surnom de véhicule",
+      "VIN":"VIN",
+      "RMA_CREATEDTS": "Date de RMA",
+      "RMA_STATUS": "Statut",
+      "RMA_OLD_SERIAL": "Ancien Num. de Série",
+      "RMA_NEW_SERIAL": "Nouveau Num. de Série",
+      "RMA_NEW_FIRSTTS": "Première connexion",
+      "RMA_NEW_LASTTS": "Dernière connexion",
+
+
+      "SUB_CREATEDTS": "Date de Substitution",
+      "ORDER_STATUS": "Statu de substitution"
+    },
+    "ACTIONS" : {
+      "VALIDATE" : "Valider",
+      "REVALIDATE" : "Revalider",
+      "REFUSE" : "Refuser",
+      "DELETE" : "Supprimer",
+      "UNSUBSCRIBE" : "Désabonner",
+      "DECLARE": "Déclarer"
+    }
+  },
+  "FULFILLMENTS" : {
+    "SEARCH" : {
+      "TITLE" : "Entrez un numéro de contrat, nom du participant ou ID du véhicule",
+      "RESULTS_TITLE" : "Choisir parmi la liste de résultats trouvés",
+      "KEYWORD_PLACEHOLDER" : "numéro de contrat, nom du participant ou ID du véhicule",
+      "CHOOSE": "Choisir"
+    },
+    "INFO" : {
+      "PERSONAL_INFO":"Informations personnelles"
+    },
+    "CONFIRM" : {
+      "TITLE" : "Confirmation de la déclaration"
+    },
+    "SEND_BTN" : "Envoyer la déclaration"
+  },
+  "RMA" : {
+    "RMA_SINGLE": "RMA",
+    "RMA_PLURAL": "RMAs",
+    "MENU" : {
+      "HOME" : "RMA",
+      "DECLARE" : "Déclarer",
+      "SUIVI" : "Suivi"
+    },
+    "BREADCRUMB" : {
+      "HOME" : "RMA",
+      "DECLARE" : "Déclarer"
+    },
+    "DECLARE" : {
+      "SEARCH" : "Choix du participant",
+      "INFO" : "Vérification des informations",
+      "VEHICLE":"Validation RMA",
+      "CONFIRM":"Confirmation"
+    },
+    "VALIDATION" : {
+      "TITLE" : "Vérifications avant soumission",
+      "VERIFICATION" : "L'installation a été vérifiée par l'agent avec le participant",
+      "RECONNECT" : "Le participant a-t-il bien essayé de déconnecter puis reconnecter son dispositif ?",
+      "OVERNIGHT_DECONNECT" : "Le participant a-t-il bien essayé de déconnecter le dispositif le temps d'une nuit ?",
+      "BLINK_20_SECS" : "Le voyant lumineux du dispositif ne clignote plus toutes les 20 secondes",
+      "NO_VEHICLE_CHANGE" : "Le partcipant n'a pas changé le dispositif de véhicule"
+    },
+    "NOTES" : "Notes",
+    "SEARCH" : {
+      "TITLE" : "Choisir parmi la liste de résultats trouvés"
+    },
+    "CONFIRM" : {
+      "MID" : "ID véhicule",
+      "ID_ASS" : "ID assureur",
+      "PARTICIPANT_INFO" : "Info du participant",
+      "PACKAGING" : "Packaging",
+      "VEHICLE_INFO" : "Info du véhicule",
+      "NO_VEHICLE" : "Aucun véhicule spécifié"
+    }
+  },
+  "SUB" : {
+    "SUB_SINGLE": "Substitution",
+    "SUB_PLURAL": "Substitutions",
+    "MENU" : {
+      "HOME" : "Substitution",
+      "SUIVI": "Suivi",
+      "DECLARE" : "Déclarer"
+    }
+  },
+  "AUTH" : {
+    "LOGOUT" : "Déconnexion",
+    "LOGIN_ERROR" : "Le nom d'utilisateur ou le mot de passe est incorrect"
+  },
+  "BATCH" : {
+    "FOR_ALL_SELECTED" : "Pour tous les éléments sélectionnés"
+  },
+  "BTN_BACK" : "Retour",
+  "BTN_NEXT" : "Suivant",
+  "PAGINATION" : {
+    "FIRST" : "Première page",
+    "PREVIOUS" : "Précédente",
+    "NEXT" : "Prochaine",
+    "LAST" : "Dernière page"
+  },
+  "CHANGE":"Changer",
+  "MODIFY":"Modifier",
+  "SAVE":"Sauvegarder",
+  "TO" : "à",
+  "OVER" : "sur",
+  "CONTINUE" : "Continuer",
+  "QUICK_SEARCH" : "Recherche rapide...",
+  "ADDITIONAL_FIELDS" : "Champs supplémentaires",
+  "VALIDATED": "Validé",
+  "UNSUBSCRIBED": "Désabonné",
+  "SUBSCRIBED": "En attente de validation",
+  "REFUSED": "Refusé",
+  "BADGE_VALIDATED": "success",
+  "BADGE_UNSUBSCRIBED": "muted",
+  "BADGE_SUBSCRIBED": "warning",
+  "BADGE_REFUSED": "danger"
+}

@@ -1,0 +1,18 @@
+<form name="formDeclare" id="declare-form">
+    <nav class="w-top-nav w-nav-">
+        <div ui-view="breadcrumbs"></div>
+        <div ui-view="progress"></div>
+    </nav>
+
+    <!--<div ng-include="'app-angular/modules/rma/templates/declare-steps.html'"></div>-->
+    <ol class="breadcrumb">
+        <li ng-repeat="step in steps" class="{{ (step.id == currentStep) ? 'active' : '' }}">{{$index + 1}}.{{step.title|translate}}</li>
+    </ol>
+
+    <div class="panel- panel-default-">
+        <div class="panel-body-">
+            <!--<div ng-include="template.stepPath"></div>-->
+            <div ui-view="step" in-out-anim class="forward"></div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,53 @@
+<table id="datatable" class="table table-striped">
+    <thead>
+    <tr>
+        <th class="hidden-sm hidden-xs" style="width:2%;"><input type="checkbox" ng-click="checkAll($event)"></th>
+        <th class="text-left tc-register-date">{{ "PARTICIPANTS.FIELDS.DATE_INSCRIPTION" | translate }}</th>
+        <th class="text-left tc-id">{{ "PARTICIPANTS.FIELDS.ID_ASS" | translate }}</th>
+        <th class="text-left tc-username">{{ "PARTICIPANTS.FIELDS.PSEUDO" | translate }}</th>
+        <th class="text-left tc-f-name">{{ "PARTICIPANTS.FIELDS.FIRSTNAME" | translate }}</th>
+        <th class="text-left tc-l-name">{{ "PARTICIPANTS.FIELDS.LASTNAME" | translate }}</th>
+        <th class="text-left tc-email">{{ "PARTICIPANTS.FIELDS.EMAIL" | translate }}</th>
+        <th class="text-left tc-phone tc-hidden">{{ "PARTICIPANTS.FIELDS.TEL" | translate }}</th>
+        <th class="text-left tc-address">{{ "PARTICIPANTS.FIELDS.ADDRESS" | translate }}</th>
+        <th class="text-left tc-city">{{ "PARTICIPANTS.FIELDS.CITY" | translate }}</th>
+        <th class="text-left tc-postal-code">{{ "PARTICIPANTS.FIELDS.POSTAL_CODE" | translate }}</th>
+        <th class="text-left tc-country tc-hidden">{{ "PARTICIPANTS.FIELDS.COUNTRY" | translate }}</th>
+        <th class="text-left tc-brand tc-hidden">{{ "PARTICIPANTS.FIELDS.BRAND" | translate }}</th>
+        <th class="text-left tc-model tc-hidden">{{ "PARTICIPANTS.FIELDS.MODEL" | translate }}</th>
+        <th class="text-left tc-year tc-hidden">{{ "PARTICIPANTS.FIELDS.YEAR" | translate }}</th>
+        <th class="text-left tc-action ">{{ "PARTICIPANTS.FIELDS.ACTION" | translate }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="row-{{cleanHighlightedData(participant.user.username)}}" class="odd gradeX" ng-repeat="participant in searchResults">
+        <td class="text-left hidden-sm hidden-xs" ng-click="checkHandler(cleanHighlightedData(participant.user.username), $parent.batchList)">
+            <input type="checkbox" name="id[]"
+                   value="{{participant.identifier}}"
+                   ng-checked="exists(cleanHighlightedData(participant.user.username))"
+                   ng-click="checkHandler(cleanHighlightedData(participant.user.username))">
+        </td>
+        <td class="text-left tc-register-date" ng-click="checkHandler(participant.user.username, $parent.batchList)">{{participant.subscriptionTs}}</td>
+
+        <td class="text-left tc-id" ng-click="checkHandler(participant.user.username, $parent.batchList)" ng-bind-html="participant.externalIdentifier | to_trusted"></td>
+
+        <td class="text-left tc-username"><a ui-sref="dashboard.participants.profile({username:cleanHighlightedData(participant.user.username)})" ng-bind-html="participant.user.username | to_trusted">{{}}</a></td>
+        <td class="text-left tc-f-name" ng-click="checkHandler(participant.user.username, $parent.batchList)" ng-bind-html="participant.user.firstName | to_trusted">{{}}</td>
+        <td class="text-left tc-l-name" ng-click="checkHandler(participant.user.username, $parent.batchList)" ng-bind-html="participant.user.lastName | to_trusted">{{}}</td>
+        <td class="text-left tc-email" ng-click="checkHandler(participant.user.username, $parent.batchList)" ng-bind-html="participant.user.email | to_trusted">{{}}</td>
+        <td class="text-left tc-phone tc-hidden" ng-click="checkHandler(participant.user.username, $parent.batchList)">{{participant.user.homePhoneNumber}}</td>
+        <td class="text-left tc-address" ng-click="checkHandler(participant.user.username, $parent.batchList)">{{participant.user.addresses[0].line1}} {{participant.user.addresses[0].line2}}</td>
+        <td class="text-left tc-city" ng-click="checkHandler(participant.user.username, $parent.batchList)"> {{participant.user.addresses[0].city}}</td>
+        <td class="text-left tc-postal-code" ng-click="checkHandler(participant.user.username, $parent.batchList)"> {{participant.user.addresses[0].postalCode}}</td>
+        <td class="text-left tc-country tc-hidden" ng-click="checkHandler(participant.user.username, $parent.batchList)"> {{participant.user.addresses[0].country}}</td>
+        <td class="text-left tc-brand tc-hidden" ng-click="checkHandler(participant.user.username, $parent.batchList)">{{participant.machines[0].vehicle.brand}}</td>
+        <td class="text-left tc-model tc-hidden" ng-click="checkHandler(participant.user.username, $parent.batchList)">{{participant.machines[0].vehicle.model}}</td>
+        <td class="text-left tc-year tc-hidden" ng-click="checkHandler(participant.user.username, $parent.batchList)">{{participant.machines[0].vehicle.year}}</td>
+        <td class="text-left tc-action ">
+            <button class="btn btn-xs btn-success table-btn" ng-click="service.commands.confirmStatusChange(participant.user.username, batchActions.validate)">{{"PARTICIPANTS.ACTIONS.VALIDATE" | translate}}</button>
+            <button class="btn btn-xs btn-warning table-btn" ng-click="service.commands.confirmStatusChange(participant.user.username, batchActions.refuse)">{{"PARTICIPANTS.ACTIONS.REFUSE" | translate}}</button>
+            <button class="btn btn-xs btn-danger table-btn" ng-click="service.commands.confirmStatusChange(participant.user.username, batchActions.delete)">{{"PARTICIPANTS.ACTIONS.DELETE" | translate}}</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

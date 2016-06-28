@@ -1,0 +1,27 @@
+<!--<div ng-include="'app-angular/templates/layouts/dashboard-topnav.html'"></div>-->
+<nav class="w-top-nav w-nav-">
+    <div ui-view="breadcrumbs"></div>
+
+    <div class="pull-right batch-nav">
+        <button ng-click="exitBatchClickHandler()" class="btn btn-link" ng-if="!requestsStarted"><span class="fa fa-angle-left"></span> Retourner à la liste</button>
+        <button ng-click="doBatchAction()" class="btn btn-primary" ng-if="!requestsStarted">{{service.currentAction.title}} les participants</button>
+        <button class="btn" ng-if="!requestsComplete && requestsStarted">S'il vous plaît, attendez...</button>
+        <button ng-click="exitBatchClickHandler()" class="btn btn-link" ng-if="requestsComplete"><span class="fa fa-angle-left"></span> Actions complète, retour à la liste</button>
+    </div>
+
+</nav>
+
+<div class="clearfix"></div>
+
+<form class="form-inline">
+    <!--{{$state.current}}-->
+    <div class="mt-10">
+        <h2>Participant(s) à {{$state.params.action}}</h2>
+        <ul id="batch-list">
+            <li ng-repeat="user in batchList" id="batch-item-{{user}}"><i></i>{{user}}<span class="error"></span></li>
+        </ul>
+    </div>
+
+    <!--<nav class="mt-20 navbar- navbar-default- navbar-fixed-bottom">-->
+    <!--</nav>-->
+</form>

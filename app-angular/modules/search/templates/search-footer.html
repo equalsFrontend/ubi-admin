@@ -1,0 +1,46 @@
+<div class="pull-left" style="width: 100%;">
+    <select ng-model="batchService.currentAction" ng-options="batchAction as batchAction.title for batchAction in batchService.batchActions" class="form-control" ng-disabled="batchList.length == 0" ng-if="$state.current.name.indexOf('dashboard.participants') > -1">
+        <option value="">{{'BATCH.FOR_ALL_SELECTED'|translate}}</option>
+    </select>
+
+    <button class="onput-group-addon- btn btn-primary" ng-disabled="!batchService.currentAction || batchService.batchList.length == 0" ng-click="batchClickHandler(batchService.currentAction);" ng-if="$state.current.name.indexOf('dashboard.participants') > -1">{{'CONTINUE'|translate}}</button>
+
+    <div class="pull-right" >
+        <div class="participant-count">
+            <span ng-if="1 + (service.searchParams.itemsPerPage * service.details.currentPage) - service.searchParams.itemsPerPage > 0 && (service.searchParams.itemsPerPage * service.details.currentPage) - service.searchParams.itemsPerPage + service.results.length > 0">
+                <b>{{1 + (service.searchParams.itemsPerPage * service.details.currentPage) - service.searchParams.itemsPerPage}}</b> {{"TO"|translate}}
+                <b>{{(service.searchParams.itemsPerPage * service.details.currentPage) - service.searchParams.itemsPerPage + service.results.length}}</b> {{"OVER"|translate}}
+            </span>
+
+            <b>{{service.details.totalItems}}</b> {{service.text.plural}}
+        </div>
+
+        <ul class="pagination" ng-if="service.pages.pageCount > 1">
+            <li ng-if="service.details.currentPage != 1">
+                <a ng-click="handlePageClick(service.pages.first)" aria-label="{{'PAGINATION.FIRST'|translate}}">
+                    <span aria-hidden="true"><span class="fa fa-angle-double-left"></span></span>
+                </a>
+            </li>
+            <li ng-if="service.details.currentPage != 1">
+                <a ng-click="handlePageClick(service.pages.previous)" aria-label="{{'PAGINATION.PREVIOUS'|translate}}">
+                    <span aria-hidden="true">
+                        <span class="fa fa-angle-left"></span>
+                    </span>
+                </a>
+            </li>
+            <li ng-repeat="page in service.pages.pagesInRange" class="{{service.searchParams.currentPage == page ? 'active' : ''}}">
+                <a ng-click="handlePageClick(page)">{{ page }}</a>
+            </li>
+            <li ng-if="service.details.currentPage != service.details.totalPages">
+                <a ng-click="handlePageClick(service.pages.next)" aria-label="{{'PAGINATION.NEXT'|translate}}">
+                    <span aria-hidden="true"><span class="fa fa-angle-right"></span></span>
+                </a>
+            </li>
+            <li ng-if="service.details.currentPage != service.details.totalPages">
+                <a ng-click="handlePageClick(service.pages.last)" aria-label="{{'PAGINATION.LAST'|translate}}">
+                    <span aria-hidden="true"><span class="fa fa-angle-double-right"></span></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

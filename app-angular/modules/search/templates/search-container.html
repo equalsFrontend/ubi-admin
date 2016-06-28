@@ -1,0 +1,37 @@
+<!--<div ng-include="'app-angular/templates/layouts/dashboard-topnav.html'"></div>-->
+<nav class="w-top-nav w-nav-">
+	<div class="padlock"  ng-if="navLocked == 'true'"></div>
+	<a href="" ng-click="toggleSidebar()" class="pull-left breadcrumb  menu-button"><span class="fa fa-bars"></span></a>
+	<div ui-view="breadcrumbs"></div>
+
+	<!--<div class="navbar-right" ng-include="template.headerbar.rightnav"></div>-->
+	<div class="navbar-right" ui-view="searchbar"></div>
+</nav>
+
+<!--<div class="" ng-include="template.filters"></div>-->
+<div ui-view="filters"></div>
+
+<div class="clearfix"></div>
+
+
+<nav class=" w-nav-">
+
+	<!--<div class="navbar-right" ng-include="template.headerbar.rightnav"></div>-->
+	<div ui-view="searchbar-top" class="w-search-form"></div>
+</nav>
+
+<form class="form-inline">
+
+	<div class="panel- panel-default- mt-10">
+		<div class="panel-body-">
+
+			<!--<div class="table-responsive row" ng-include="template.table"></div>-->
+			<div class="table-responsive row" ui-view="table"></div>
+
+			<nav class="mt-20 navbar- navbar-default- navbar-fixed-bottom">
+				<!--<div ng-include="template.footer" class="pull-left hidden-sm hidden-xs footer-"></div>-->
+				<div class="pull-left hidden-sm hidden-xs footer-" ui-view="footer" style="width: 100%;"></div>
+			</nav>
+		</div>
+	</div>
+</form>

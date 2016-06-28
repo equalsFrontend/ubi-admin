@@ -1,0 +1,82 @@
+<nav class="w-navbar w-nav" role="navigation">
+    <div class="nav-brand">
+        <a class="w-nav-brand" ui-sref="dashboard.home"><img src="img/logo.png"></a>
+
+        <lang-switcher class="pull-right"></lang-switcher>
+    </div>
+
+    <ul class="nav metismenu" id="side-menu" accordion-menu>
+        <!--<li ui-sref-active="open">-->
+            <!--<a ui-sref="dashboard.home" ui-sref-active="active">-->
+                <!--<i class="fa fa-tachometer fa-fw"></i> <span>{{"DASHBOARD.MENU.HOME" | translate}}</span>-->
+            <!--</a>-->
+        <!--</li>-->
+        <li ui-sref-active="open">
+            <a class="w-toggle" href="">
+                <i class="fa fa-users fa-fw"></i> <span>{{"PARTICIPANTS.MENU.HOME" | translate}}</span> <i class="fa fa-caret-down"></i>
+            </a>
+
+            <ul class="w-dropdown nav">
+                <li><a ui-sref="dashboard.participants.search.validation" ui-sref-active="active"><i class="fa fa-fw"></i> {{"PARTICIPANTS.MENU.VALI" | translate}}</a></li>
+                <li><a ui-sref="dashboard.participants.search.suivi" ui-sref-active="active"><i class="fa fa-fw"></i> {{"PARTICIPANTS.MENU.SUIVI" | translate}}</a></li>
+                <li><a ui-sref="dashboard.participants.search.desa" ui-sref-active="active"><i class="fa fa-fw"></i> {{"PARTICIPANTS.MENU.DESA" | translate}}</a></li>
+                <li><a ui-sref="dashboard.participants.search.refuse" ui-sref-active="active"><i class="fa fa-fw"></i> {{"PARTICIPANTS.MENU.REFU" | translate}}</a></li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="{{(currentSection == 'RMA') ? 'open' : ''}}">
+            <a class="w-toggle" href="">
+                <i class="fa fa-refresh fa-fw"></i> <span>{{"RMA.MENU.HOME" | translate}}</span> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="w-dropdown nav">
+
+                <li><a ui-sref="dashboard.rma.search.suivi" ui-sref-active="active"><i class="fa fa-fw"></i> {{"RMA.MENU.SUIVI" | translate}}</a></li>
+
+                <li><a ui-sref="dashboard.rma.declare.search" ui-sref-active="active"><i class="fa fa-fw"></i> {{"RMA.MENU.DECLARE" | translate}}</a></li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+
+        <li class="{{(currentSection == 'SUB') ? 'open' : ''}}">
+            <a class="w-toggle" href="">
+                <i class="fa fa-car fa-fw"></i> <span>{{"SUB.MENU.HOME" | translate}}</span> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="w-dropdown nav">
+
+
+                <li><a ui-sref="dashboard.sub.search.suivi" ui-sref-active="active"><i class="fa fa-fw"></i> {{"SUB.MENU.SUIVI" | translate}}</a></li>
+
+                <li><a ui-sref="dashboard.sub.declare.search" ui-sref-active="active"><i class="fa fa-fw"></i> {{"SUB.MENU.DECLARE" | translate}}</a></li>
+            </ul>
+        </li>
+        <!--
+        -->
+        <!-- /.dropdown -->
+
+        <!--
+        <li class="{{(currentSection == 'support') ? 'open' : ''}}">
+            <a href="{{path('supportController')}}">
+                <i class="fa fa-support fa-fw"></i> <span>Support</span>
+            </a>
+        </li>
+        -->
+
+    </ul>
+    <!-- /#side-menu -->
+
+    <ul class="nav navbar-fixed-bottom">
+
+        <li class="">
+            <a class="w-toggle" data-toggle="dropdown" href="" dropdown-toggle>
+                <i class="fa fa-user fa-fw"></i> <span>{{user.firstName}}</span>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="w-dropdown nav">
+                <li><a ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> {{"AUTH.LOGOUT" | translate}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- /.navbar-fixed-bottom -->
+</nav>

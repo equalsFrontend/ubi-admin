@@ -1,0 +1,21 @@
+<ul>
+    <li>
+        <form class="form-inline- pull-left w-search-form navbar-input">
+            <label for="table-search" ng-class="{'has-input': service.searchParams.filters.searchString.length > 0}" ng-click="cancelSearch();"><i class="fa fa-search"></i></label>
+            <input ng-change="updateSearch(service.searchParams, {{service.searchParams}})" ng-model="service.searchParams.filters.searchString" id="table-search" type="search" on-enter="onEnter()" placeholder="{{'QUICK_SEARCH'|translate}}" class="form-control" search-box>
+        </form>
+    </li>
+    <li>
+        <span class="dropdown pull-right">
+            <button class="btn btn-link navbar-input dropdown-toggle" data-toggle="dropdown">
+                {{'ADDITIONAL_FIELDS'|translate}}
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <p class="dropdown-menu w-dropdown-menu-pad">
+                <button ng-repeat="field in hiddenFields" w-toggle=".{{field.cssClass}}" class="hidden-field-toggle btn-block btn w-btn-toggle">
+                    <i class="fa fa-plus"></i> {{field.title}}
+                </button>
+            </p>
+        </span>
+    </li>
+</ul>

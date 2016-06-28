@@ -1,0 +1,51 @@
+<div class="container" ng-cloak>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <img src="img/login.png" style="display:block;margin-left:-31px;position:absolute;top: 7.5%;left:50%">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Se connecter</h3>
+                </div>
+                <div class="panel-body">
+                
+                    <div ng-show="error" class="alert alert-danger">{{error}}</div>
+                    
+                    <form class="form-horizontal" role="form" ng-submit="login()">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-4" for="username">Nom d'utilisateur</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control col-sm-10" placeholder="Nom d'utilisateur" ng-model="username" name="username" type="text" autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4" for="password">Mot de passe</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" placeholder="Mot de passe" ng-model="password" name="password" type="password" value="">
+                                </div>
+                            </div>
+                            <div class="checkbox form-group">
+                                <div class="col-sm-12">
+                                    
+                                    <input name="remember" ng-model="rememberMe" id="remember" type="checkbox" value="1">
+                                    <label for="remember">Se souvenir de moi</label>
+                                </div>
+                            </div>
+                            <div class="form-group pad-top">
+                                <!--
+                                <div class="col-sm-7">
+                                    <a class="btn btn-link btn-link-align" href="">Mot de passe perdu?</a>
+                                </div>
+                                -->
+                                <div class="col-sm-5 col-sm-offset-7">
+                                    <input type="hidden" name="do" value="login">
+                                    <button type="submit" class="btn btn-block btn-primary">Se connecter</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,291 @@
+
+
+    <nav class="w-top-nav w-nav-">
+        <div ui-view="breadcrumbs"></div>
+        <div class="pull-right navbar-input">
+
+            <button ng-disabled="(formParticipant.$pristine && formAddress.$pristine)" type="button" ng-click="save()" class="btn btn-primary">  {{'SAVE'|translate}} </button>
+        </div>
+    </nav>
+
+
+
+    <div class=" mt-20 profile-panel">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default mb-0">
+                        <h6 class="panel-heading">
+                            {{participant.user.username}}
+                        </h6>
+
+                        <div class="col-lg-12 bg-{{'BADGE_' + participant.status | translate}}  pb-10 pt-10">
+                            <span class="text-{{'BADGE_' + participant.status | translate}}"> {{participant.status | translate}} <em class='fa fa-circle fa-fw'></em> </span>
+
+                            <div class="btn-group pull-right ">
+                                <a href="" class="btn- btn-link- dropdown-toggle-" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{"CHANGE"|translate}} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li ng-if="canChangeStatus('validate')"><a ng-click="confirmStatusChange('validate');"><span ng-if="participant.status != 'UNSUBSCRIBED'">{{"PARTICIPANTS.ACTIONS.VALIDATE" | translate}}</span><span ng-if="participant.status == 'UNSUBSCRIBED'">{{"PARTICIPANTS.ACTIONS.REVALIDATE" | translate}}</span></a></li>
+                                    <li ng-if="canChangeStatus('refuse')"><a ng-click="confirmStatusChange('refuse');">{{"PARTICIPANTS.ACTIONS.REFUSE" | translate}}</a></li>
+                                    <li ng-if="canChangeStatus('unsubscribe')"><a ng-click="confirmStatusChange('unsubscribe');">{{"PARTICIPANTS.ACTIONS.UNSUBSCRIBE" | translate}}</a></li>
+                                    <li ng-if="canChangeStatus('delete')" role="separator" class="divider"></li>
+                                    <li ng-if="canChangeStatus('delete')"><a ng-click="confirmStatusChange('delete');"> <span  class="text-danger">{{"PARTICIPANTS.ACTIONS.DELETE" | translate}}</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="panel-body">
+                            <address>
+
+                                <h6>
+                                {{participant.user.firstName}} {{participant.user.lastName}}
+                                </h6>
+                                <strong>{{participant.externalIdentifier}}</strong> <br>
+
+                                <br>
+
+                                {{address.line1}}<br ng-if="address.line1">
+                                {{address.line2}}<br ng-if="address.line2">
+                                {{address.city}}, {{address.country}} {{address.postalCode}}<br>
+                                <em class="fa fa-phone fa-fw"></em> {{participant.user.homePhoneNumber}}<br ng-if="participant.user.homePhoneNumber">
+                                <em class="fa fa-mobile fa-fw" ng-if="participant.user.cellPhoneNumber"></em> {{participant.user.cellPhoneNumber}}<br ng-if="participant.user.cellPhoneNumber">
+                                <em class="fa fa-envelope fa-fw"></em> <a href="mailto:{{participant.user.email}}">{{participant.user.email}}</a><br ng-if="participant.user.email">
+
+                                <br>
+
+                                {{machine.machineIdentifier}} <br>
+                                <div ng-show="machine.vehicle" ng-if="machine.vehicle.name">
+                                    <strong>{{ machine.vehicle.brand }} {{ machine.vehicle.model }}</strong><br>
+                                    {{ machine.vehicle.name }} <br ng-show="machine.vehicle.name">
+                                    {{ machine.vehicle.year }}
+                                </div>
+
+                            </address>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <md-content>
+                        <md-tabs md-dynamic-height md-border-bottom>
+                            <md-tab label="{{'PARTICIPANTS.PROFIL.TABS.INFO'|translate}}">
+                                <md-content class="md-padding">
+                                    <form name="formParticipant">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.ID_ASS'|translate}}</label>
+                                                    <input class="form-control" name="externalIdentifier" type="text" ng-model="participant.externalIdentifier" required>
+                                                    <p ng-show="formParticipant.externalIdentifier.$invalid && formParticipant.$submitted" class="help-block- text-danger">
+                                                        L'ID assureur ne peut être vide.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.PSEUDO'|translate}}</label>
+                                                    <input ng-disabled="true" class="form-control" type="text" ng-model="participant.user.username" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.LASTNAME'|translate}}</label>
+                                                    <input class="form-control" name="lastName" type="text" ng-model="participant.user.lastName" required>
+                                                    <p ng-show="formParticipant.lastName.$invalid && formParticipant.$submitted" class="help-block- text-danger">
+                                                        Le nom ne peut être vide.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.FIRSTNAME'|translate}}</label>
+                                                    <input class="form-control" name="firstName" type="text" ng-model="participant.user.firstName" required>
+                                                    <p ng-show="formParticipant.firstName.$invalid && formParticipant.$submitted" class="help-block- text-danger">
+                                                        Le prénom ne peut être vide.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.TEL_MOBILE'|translate}}</label>
+                                                    <input class="form-control" name="cellPhoneNumber" type="text" ng-model="participant.user.cellPhoneNumber">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.TEL_FIX'|translate}}</label>
+                                                    <input class="form-control" type="text" ng-model="participant.user.homePhoneNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.EMAIL'|translate}}</label>
+                                                    <input class="form-control" name="email" type="email" ng-model="participant.user.email" required>
+                                                    <p ng-show="formParticipant.email.$invalid && formParticipant.$submitted" class="help-block- text-danger">
+                                                        Le courriel est invalide.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.LANGUAGE'|translate}}</label>
+                                                    <input class="form-control" type="text" ng-model="participant.user.language">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="{{'PARTICIPANTS.PROFIL.TABS.ADDRESS'|translate}}">
+                                <md-content class="md-padding">
+                                    <form name="formAddress">
+                                        <div class="form-group">
+                                            <label>{{'PARTICIPANTS.FIELDS.ADDRESS1'|translate}}</label>
+                                            <input class="form-control" name="address1" type="text" ng-model="address.line1" required>
+                                            <p ng-show="formAddress.address1.$invalid && formAddress.$submitted" class="help-block- text-danger">
+                                                L'adresse ne peut être vide.
+                                            </p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{'PARTICIPANTS.FIELDS.ADDRESS2'|translate}}</label>
+                                            <input class="form-control" type="text" ng-model="address.line2" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{'PARTICIPANTS.FIELDS.POSTAL_CODE'|translate}}</label>
+                                            <input class="form-control" name="postalCode" type="text" ng-model="address.postalCode" required>
+                                            <p ng-show="formAddress.postalCode.$invalid && formAddress.$submitted" class="help-block- text-danger">
+                                                Le code postal ne peut être vide.
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.CITY'|translate}}</label>
+                                                    <input class="form-control" name="city" type="text" ng-model="address.city" required>
+                                                    <p ng-show="formAddress.city.$invalid && formAddress.$submitted" class="help-block- text-danger">
+                                                        La ville ne peut être vide.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>{{'PARTICIPANTS.FIELDS.COUNTRY'|translate}}</label>
+                                                    <input class="form-control" name="country" type="text" ng-model="address.country" required>
+                                                    <p ng-show="formAddress.country.$invalid && formAddress.$submitted" class="help-block- text-danger">
+                                                        Le pays ne peut être vide.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="{{'PARTICIPANTS.PROFIL.TABS.MACHINE_AND_DEVICE'|translate}}">
+                                <md-content class="md-padding">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="panel panel-flat mb-0">
+                                                <h5 class="panel-heading">
+                                                    {{'PARTICIPANTS.FIELDS.DEVICE'|translate}}
+                                                </h5>
+
+                                                <div class="panel-body">
+                                                    <div class="form-group">
+                                                        <label>{{'PARTICIPANTS.FIELDS.SERIAL_NO'|translate}}</label>
+                                                        <input class="form-control" ng-disabled="true" type="text" ng-model="machine.deviceSerialNumber" >
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.FIRST_TRANSMISSION'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.firstConnectionTs" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.LAST_TRANSMISSION'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.lastConnectionTs" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="panel panel-flat mb-0">
+                                                <h5 class="panel-heading">
+                                                    {{'PARTICIPANTS.FIELDS.VEHICLE'|translate}}
+                                                </h5>
+
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.MUBI'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.machineIdentifier" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.VIN'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.vehicle.vin" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.BRAND'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.vehicle.brand" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.MODEL'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.vehicle.model" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.VEHICLE_NAME'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.vehicle.name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>{{'PARTICIPANTS.FIELDS.YEAR'|translate}}</label>
+                                                                <input class="form-control" ng-disabled="true" type="text" ng-model="machine.vehicle.year" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                    </md-content>
+                </div>
+            </div>
+
+
+    </div>
+
+</form>

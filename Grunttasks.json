@@ -1,0 +1,303 @@
+{
+  "bower": {
+    "install": {
+      "options": {
+        "targetDir": "./bower_components",
+        "install": true
+      }
+    }
+  },
+  "bower_concat": {
+    "all": {
+      "dest": {
+        "js": "dist/imetrik_libs_v<%= pkg.version %>.js",
+        "css": "dist/styles_libs_v<%= pkg.version %>.css"
+      },
+      "mainFiles": {
+        "bootstrap": ["dist/js/bootstrap.min.js", "dist/css/bootstrap.min.css"],
+        "font-awesome": "css/font-awesome.min.css",
+        "angular-ui-router": "release/angular-ui-router.js"
+      },
+      "dependencies": {
+        "bootstrap": ["jquery", "font-awesome"],
+        "jquery": "font-awesome",
+        "startbootstrap-sb-admin-2": "font-awesome"
+      },
+      "bowerOptions": {
+        "relative": false
+      },
+      "exclude": [
+        "datatables-plugins"
+      ]
+    }
+  },
+
+  "copy": {
+    "csslibs": {
+      "src": "dist/styles_libs_v<%= pkg.version %>.css",
+      "dest": "dist/styles_libs_v<%= pkg.version %>.min.css"
+    }
+  },
+
+  "clean": {
+    "dist": ["dist"],
+    "typescript": [".ts"]
+  },
+
+  "comparejson": {
+    "compare": {
+      "src": ["app-angular/modules/dashboard/*.json"],
+      "fatal": true
+    }
+  },
+
+  "replace": {
+    "dev": {
+      "options": {
+        "patterns": [
+          {
+            "match": "<%= pkg.version %>.min.js",
+            "replacement": "<%= pkg.version %>.js"
+          },
+          {
+            "match": "<%= pkg.version %>.min.css",
+            "replacement": "<%= pkg.version %>.css"
+          }
+        ],
+        "usePrefix": false
+      },
+      "files": [
+        {
+          "expand": true,
+          "flatten": true,
+          "src": ["index.html"],
+          "dest": ""
+        }
+      ]
+    },
+    "dist": {
+      "options": {
+        "patterns": [
+          {
+            "match": "<%= pkg.version %>.js",
+            "replacement": "<%= pkg.version %>.min.js"
+          },
+          {
+            "match": "<%= pkg.version %>.css",
+            "replacement": "<%= pkg.version %>.min.css"
+          }
+        ],
+        "usePrefix": false
+      },
+      "files": [
+        {
+          "expand": true,
+          "flatten": true,
+          "src": ["index.html"],
+          "dest": ""
+        }
+      ]
+    }
+  },
+
+  "concat": {
+    "options": {
+      "banner": "/*\n * <%= pkg.name %> - <%= pkg.description %> (DEBUG) \n * Version: <%= pkg.version %>\n * Compiled On: <%= grunt.template.today('dd-mm-yyyy') %> \n*/\n\n"
+    },
+    "css": {
+      "files": {
+        "dist/styles_v<%= pkg.version %>.css": [
+          "css/*.css"
+        ]
+      }
+    },
+    "application": {
+      "files": {
+        "dist/imetrik_v<%= pkg.version %>.js": [
+          ".ts/*.js",
+          "app-angular/*.js",
+          "app-angular/*/*.js",
+          "app-angular/*/*/*.js",
+          "app-angular/*/*/*/*.js",
+          "app-angular/*/*/*/*/*.js",
+          "app-angular/*/*/*/*/*/*.js"
+        ]
+      }
+    }
+  },
+
+
+  "uglify": {
+    "options": {
+      "banner": "/*\n * <%= pkg.name %> - <%= pkg.description %>\n * Version: <%= pkg.version %>\n * Compiled On: <%= grunt.template.today('dd-mm-yyyy') %> \n*/\n\n",
+      "mangle": true
+    },
+    "application": {
+      "files": {
+        "dist/imetrik_v<%= pkg.version %>.min.js": [
+          "dist/imetrik_v<%= pkg.version %>.js"
+        ]
+      }
+    },
+    "libraries": {
+      "files": {
+        "dist/imetrik_libs_v<%= pkg.version %>.min.js": [
+          "dist/imetrik_libs_v<%= pkg.version %>.js"
+        ]
+      }
+    }
+  },
+
+
+  "cssmin": {
+    "dev": {
+      "files": {
+        "dist/styles_v<%= pkg.version %>.min.css": [
+          "css/*.css"
+        ]
+      }
+    }
+  },
+
+
+  "rename": {
+    "csslibs": {
+      "files": [
+        {
+          "src": ["dist/styles_libs_v<%= pkg.version %>.css"],
+          "dest": "dist/styles_libs_v<%= pkg.version %>.min.css"
+        }
+      ]
+    }
+  },
+
+  "typescript": {
+    "base": {
+      "src": [
+        "app-angular/*.ts",
+        "app-angular/*/*.ts",
+        "app-angular/*/*/*.ts",
+        "app-angular/*/*/*/*.ts",
+        "app-angular/*/*/*/*/*.ts",
+        "app-angular/*/*/*/*/*/*.ts"
+      ],
+      "dest": ".ts/temp.js",
+      "options": {
+        "module": "amd",
+        "target": "es5",
+        "sourceMap": true,
+        "declaration": true
+      }
+    }
+  },
+
+  "watch": {
+    "application": {
+      "files": [
+        ".ts/*.js",
+        "app-angular/*.js",
+        "app-angular/*/*.js",
+        "app-angular/*/*/*.js",
+        "app-angular/*/*/*/*.js",
+        "app-angular/*/*/*/*/*.js",
+        "app-angular/*/*/*/*/*/*.js"
+      ],
+      "tasks": [
+        "dev"
+      ]
+    },
+    "css": {
+      "files": [
+        "css/*.css"
+      ],
+      "tasks": [
+        "dev"
+      ]
+    }
+  },
+
+
+  "jshint": {
+    "files": [
+      ".ts/*.js",
+      "app-angular/*.js",
+      "app-angular/*/*.js",
+      "app-angular/*/*/*.js",
+      "app-angular/*/*/*/*.js",
+      "app-angular/*/*/*/*/*.js",
+      "app-angular/*/*/*/*/*/*.js"
+    ]
+  },
+
+  "compress": {
+    "main": {
+      "options": {
+        "archive": "build/<%= pkg.name %>-<%= pkg.version %>.zip"
+      },
+      "files": [
+        { "src": [
+          "app-angular/**/*",
+          "css/**/*",
+          "dist/**/*",
+          "fonts/**/*",
+          "img/**/*",
+          "js/**/*",
+          "index.html"
+        ] }
+      ]
+    }
+  },
+
+
+  "maven_deploy" : {
+    "options": {
+      "groupId": "com.imetrik.saas.frontend.ubi",
+      "artifactId": "admin"
+    },
+    "snapshot": {
+      "options": {
+        "version": "<%= pkg.version %>",
+        "snapshot": "true",
+        "classifier": "package",
+        "packaging": "zip",
+        "goal": "deploy",
+        "url": "http://nexus.imetrik.com/content/repositories/im-saas-snapshots",
+        "repositoryId": "im-saas-snapshots"
+      },
+
+      "files": [
+        { "src": [
+          "app-angular/**/*",
+          "css/**/*",
+          "dist/**/*",
+          "fonts/**/*",
+          "img/**/*",
+          "js/**/*",
+          "index.html"
+        ] }
+      ]
+    },
+    "release": {
+      "options": {
+        "version": "<%= pkg.version %>",
+        "classifier": "package",
+        "packaging": "zip",
+        "goal": "deploy",
+        "url": "http://nexus.imetrik.com/content/repositories/im-saas-releases",
+        "repositoryId": "im-saas-releases"
+      },
+
+      "files": [
+        { "src": [
+          "app-angular/**/*",
+          "css/**/*",
+          "dist/**/*",
+          "fonts/**/*",
+          "img/**/*",
+          "js/**/*",
+          "index.html"
+        ] }
+      ]
+    }
+  }
+}

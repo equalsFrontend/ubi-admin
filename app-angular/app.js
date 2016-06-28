@@ -31,11 +31,11 @@ app.constant("APP_CONFIG", {
 
 		//alpha
 		if(location.host.indexOf('alpha') > -1) {
-			return "http://doc.imetrik.com:10880";
+			return "";
 
 		//beta
 		} else if(location.host.indexOf('beta') > -1){
-			return " http://beta.maif.insurance.imetrik.com:10880";
+			return "";
 
 		//local or integration
 		} else if(location.host.indexOf('integration') > -1 || location.host.indexOf('localhost') > -1 || location.host.indexOf('10.10') > -1){
@@ -43,11 +43,11 @@ app.constant("APP_CONFIG", {
 
 		//prod
 		} else if (location.host.indexOf('maif.insurance.imetrik.com') > -1 || location.host.indexOf('maif.microsite.imetrik.com') > -1 || location.host.indexOf('maifandgo.fr') > -1) {
-			return "https://insurance.imetrik.com/api/v2";
+			return "";
 
 		//demo
 		} else {
-			return "http://doc.imetrik.com:10808";
+			return "";
 		}
 	})(),
 	"realmName" : "maif_ubi"

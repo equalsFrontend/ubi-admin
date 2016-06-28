@@ -12,3 +12,8 @@
 
 - Only for examinging code, API endpoints are internal only
 - Project has been worked on by a total of two people and went through a phase of major refactoring early, however not all code has been re-written
+
+## Features:
+
+- Custom search module
+- Architecture & Routing prepared for large scale development
